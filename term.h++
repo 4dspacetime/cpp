@@ -147,7 +147,7 @@ namespace term
             const char mode = '/'
         )
         {
-            if (pos >= width + height - 1)
+            if (pos > width + height - 2)
                 return;
             const enum { fwd, bck, oth } flg =
                 mode == '/' ? fwd : mode == '\\' ? bck : oth;
