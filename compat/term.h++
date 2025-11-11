@@ -96,6 +96,13 @@ namespace term
                 for (std::array<char, width> &i : data)
                     i[pos] = chr;
         }
+        void draw_cor(const char chr)
+        {
+            data[0][0] = chr;
+            data[0][width - 1] = chr;
+            data[height - 1][0] = chr;
+            data[height - 1][width - 1] = chr;
+        }
         template <std::size_t w, std::size_t h>
         void draw_frm(const frm<w, h> oth)
         {
