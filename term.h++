@@ -15,7 +15,7 @@ namespace term
     {
 #ifdef _WIN32
         system("cls");
-#elif
+#else
         system("clear");
 #endif
     }
