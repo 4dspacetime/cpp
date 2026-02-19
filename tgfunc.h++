@@ -6,6 +6,7 @@
 #include <chrono>
 #include <functional>
 #include <print>
+#include <source_location>
 #include <string>
 #define TGFUNC_DBG std::source_location::current()
 namespace tgfunc
@@ -126,21 +127,9 @@ namespace tgfunc
         ) : body(body), src_loc(src_loc), desc(desc) {}
         ret operator()(const args ..._args) const
         {
-            std::println
-            (
-                "File:     {}.",
-                src_loc.file_name()
-            );
-            std::println
-            (
-                "Line:     {}.",
-                src_loc.line()
-            );
-            std::println
-            (
-                "Column:   {}.",
-                src_loc.column()
-            );
+            std::println("File: {}.", src_loc.file_name());
+            std::println("Line: {}.", src_loc.line());
+            std::println("Column: {}.", src_loc.column());
             std::println
             (
                 "Function: {}.",
@@ -148,7 +137,7 @@ namespace tgfunc
             );
             std::println("Beginning of {}.", desc);
             const ret _ret = body(_args...);
-            std::println("End of       {}.", desc);
+            std::println("End of {}.", desc);
             return _ret;
         }
     };

@@ -68,21 +68,9 @@ namespace func
         ) : body(body), src_loc(src_loc), desc(desc) {}
         void operator()() const
         {
-            std::println
-            (
-                "File:     {}.",
-                src_loc.file_name()
-            );
-            std::println
-            (
-                "Line:     {}.",
-                src_loc.line()
-            );
-            std::println
-            (
-                "Column:   {}.",
-                src_loc.column()
-            );
+            std::println("File: {}.", src_loc.file_name());
+            std::println("Line: {}.", src_loc.line());
+            std::println("Column: {}.", src_loc.column());
             std::println
             (
                 "Function: {}.",
@@ -90,7 +78,7 @@ namespace func
             );
             std::println("Beginning of {}.", desc);
             body();
-            std::println("End of       {}.", desc);
+            std::println("End of {}.", desc);
         }
     };
     // }

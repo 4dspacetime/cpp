@@ -64,21 +64,16 @@ namespace func
             const int line,
             const char *func,
             const desc_t desc = "dbg"
-        ) : body(body), file(file), line(line), func(func),
-            desc(desc) {}
+        ) : body(body), file((char *)file), line(line),
+            func((char *)func), desc(desc) {}
         void operator()() const
         {
-            std::cout << "File:     " << file << '.' <<
-                std::endl;
-            std::cout << "Line:     " << line << '.' <<
-                std::endl;
-            std::cout << "Function: " << func << '.' <<
-                std::endl;
-            std::cout << "Beginning of " << desc << '.' <<
-                std::endl;
+            std::cout << "File: " << file << std::endl;
+            std::cout << "Line: " << line << std::endl;
+            std::cout << "Function: " << func << std::endl;
+            std::cout << "Beginning of " << desc << std::endl;
             body();
-            std::cout << "End of       " << desc << '.' <<
-                std::endl;
+            std::cout << "End of " << desc << std::endl;
         }
     };
     // }

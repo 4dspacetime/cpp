@@ -127,17 +127,12 @@ namespace tgfunc
             desc(desc) {}
         ret operator()(const args ..._args) const
         {
-            std::cout << "File:     " << file << '.' <<
-                std::endl;
-            std::cout << "Line:     " << line << '.' <<
-                std::endl;
-            std::cout << "Function: " << func << '.' <<
-                std::endl;
-            std::cout << "Beginning of " << desc << '.' <<
-                std::endl;
+            std::cout << "File: " << file << std::endl;
+            std::cout << "Line: " << line << std::endl;
+            std::cout << "Function: " << func << std::endl;
+            std::cout << "Beginning of " << desc << std::endl;
             const ret _ret = body(_args...);
-            std::cout << "End of       " << desc << '.' <<
-                std::endl;
+            std::cout << "End of " << desc << std::endl;
             return _ret;
         }
     };
